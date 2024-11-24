@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        /* outline: 1px solid; */
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        background-color: rgb(233, 255, 210);
+    }
+
+    .spinner {
+        display: none;
+        padding: 1rem;
+        height: 90vh;
+        width: 25%;
+        margin: auto;
+        background-color: white;
+        /* border-radius: 1rem; */
+        margin-bottom: 1rem;
+    }
+
+    .homepage {
+        display: block;
+        padding: 1rem;
+        width: 25%;
+        min-width: 22rem;
+        max-width: 100%;
+        margin: auto;
+        background-color: white;
+        /* border-radius: 1rem; */
+        margin-bottom: 1rem;
+    }
+
+    .homepage header {
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: lime;
+    }
+
+    .signuppage {
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        width: 25%;
+        min-width: 22rem;
+        max-width: 100%;
+        /* border-radius: 1rem; */
+        margin: auto;
+        background-color: white;
+        margin-bottom: 1rem;
+
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .homepage p {
+        font-size: 0.8rem;
+    }
+
+    .homepage button {
+        text-align: center;
+        width: 100%;
+        padding: 1rem;
+        /* border-radius: 1rem; */
+        border: none;
+        background-color: lime;
+        margin-top: 8rem;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+    }
+
+    .homepage button:hover {
+        background-color: rgb(115, 255, 115);
+
+    }
+
+    .homepage input {
+        padding: 0.8rem;
+        width: 100%;
+        margin-bottom: 1rem;
+        /* border-radius: 1rem; */
+        border: 1px solid rgb(174, 174, 174);
+    }
+
+    .homepage input:focus-visible {
+        outline: none;
+    }
+
+    .displayconverted {
+        background-color: rgb(115, 255, 115);
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 0.8rem;
+        text-align: center;
+        /* border-radius: 1rem; */
+        margin-bottom: 0.5rem;
+
+    }
+
+    select {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        /* border-radius: 1rem; */
+        border: 1px solid rgb(174, 174, 174);
+    }
+
+    select option:hover {
+        background-color: rgb(115, 255, 115);
+
+    }
+
+    select:focus-visible {
+        outline: none;
+    }
+
+    .signuppage header {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: lime;
+    }
+
+    .signuppage input {
+        padding: 0.8rem;
+        /* border-radius: 1rem; */
+        margin-bottom: 0.5rem;
+        border: 1px solid rgb(174, 174, 174);
+
+    }
+
+    .signuppage input:focus-visible {
+        outline: none;
+    }
+
+    .signuppage button {
+        padding: 1rem;
+        /* border-radius: 1rem; */
+        border: none;
+        margin-top: 5rem;
+        background-color: lime;
+        cursor: pointer;
+    }
+
+    .signuppage button:hover {
+        background-color: rgb(115, 255, 115);
+
+    }
+
+    .signuppage p {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1rem;
+        /* line-height: 2rem; */
+    }
+
+    ul {
+        font-size: 0.8rem;
+        margin-bottom: 3rem;
+        /* display: none; */
+    }
+
+    ul li {
+        margin-left: 1rem;
+    }
+
+    u {
+        font-size: 0.8rem;
+        /* border-radius: 1rem; */
+        cursor: pointer;
+        color: lime;
+    }
+
+    /* HTML: <div class="loader"></div> */
+    .loader {
+        display: none;
+        width: 40px;
+        height: 30px;
+        margin: auto;
+        /* margin-top: 20rem; */
+        --c: no-repeat linear-gradient(#000 0 0);
+        background:
+            var(--c) 0 100%/8px 30px,
+            var(--c) 50% 100%/8px 20px,
+            var(--c) 100% 100%/8px 10px;
+        position: relative;
+        clip-path: inset(-100% 0);
+    }
+
+    .loader:before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: lime;
+        left: -16px;
+        top: 0;
+        animation:
+            l5-1 2s linear infinite,
+            l5-2 0.5s cubic-bezier(0, 200, .8, 200) infinite;
+    }
+
+    @keyframes l5-1 {
+        0% {
+            left: -16px;
+            transform: translateY(-8px)
+        }
+
+        100% {
+            left: calc(100% + 8px);
+            transform: translateY(22px)
+        }
+    }
+
+    @keyframes l5-2 {
+        100% {
+            top: -0.1px
+        }
+    }
+
+    .errors {
+        display: none;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20rem;
+        /* margin: auto; */
+    }
+</style>
+
+<body>
+    <div class="errors" id="errors">
+        <section class="loader" id="spinnerdiv">
+        </section>
+        <p>Loading...</p>
+    </div>
+    <section class="homepage" id="homepage">
+        <div class="head">
+            <header>Currency Converter</header>
+            <u onclick="signup()">Signup</u>
+        </div>
+
+        <p>Amount</p>
+        <input type="text" placeholder="1,000,000" id="amountinput">
+        <p>From</p>
+        <select id="select"> </select>
+        <p>To</p>
+        <select id="select2"> </select>
+        <button onclick="convert()">Convert</button>
+        <div class="displayconverted">Converted Amount <b id="convertedamount"></b></div>
+    </section>
+    <section class="signuppage" id="signuppage">
+        <header>Currency Converter</header>
+        <p>Signup</p>
+        <input type="text" id="email" placeholder="Enter your email address here">
+        <input type="password" id="password1" placeholder="Create new password">
+        <input type="password" id="password2" placeholder="Confirm password">
+        <p id="error" style="font-size: 0.8rem; color: red;"></p>
+        <p style="font-size: 0.8rem; color: rgb(114, 114, 114);">YOUR PASSWORD MUST CONTAIN</p>
+        <ul id="allerror">
+            <li id="error1">between 8 and 20 characters</li>
+            <li id="error2">1 upper case letter</li>
+            <li id="error3">1 or more numbers</li>
+            <li id="error4">1 or more special character</li>
+        </ul>
+        <button onclick="createaccount()">Sign up</button>
+    </section>
+</body>
+<script src="./index.js"></script>
+
+
+</html>
