@@ -60,9 +60,9 @@ const getCurrency = async () => {
             select2.innerHTML += `<option value="${other[key].value}">${other[key].code}</option>`;
         }
     } catch (error) {
-        // spinnerdiv.style.display = 'block'
-        // homepage.style.display = 'none'
-        // errors.style.display = 'flex'
+        spinnerdiv.style.display = 'block'
+        homepage.style.display = 'none'
+        errors.style.display = 'flex'
     }
 };
 function convert() {
