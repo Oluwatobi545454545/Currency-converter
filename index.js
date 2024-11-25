@@ -25,70 +25,50 @@ function createaccount() {
     let regex2 = /^(?=[A-Z])./ //one uppercase at least
     let regex3 = /^(?=[0-9])./ //one number at least
     let regex4 = /^(?=.[!@#$%^&*{};:'<>,./?]).*/ //one special characters
-    
+
 
     if (email.value == '' || password1.value == '' || password2.value == '') {
         error.innerHTML = 'Pls fill all fields'
-
-
     } else if (password1.value != password2.value) {
         error.innerHTML = 'Password does not match'
-
-    } else if (password1.value != password2.value) {
-        error.innerHTML = 'Password does not match'
-
+    } else if (regex1.test(password1.value) && regex2.test(password1.value) && regex3.test(password1.value) && regex4.test(password1.value)) {
+        error1.style.color = 'navy'
     } else {
         email.value = ''; password1.value = ''; password2.value = ''; error.innerHTML = '';
         signuppage.style.display = 'none'
         homepage.style.display = 'block'
-        localStorage.setItem('userdetail', email )
+        localStorage.setItem('userdetail', email)
     }
 
 
-    if (regex1.test(!password1.value)) {
-        error1.style.color = 'red'
-    } else {
-        error1.style.color = 'red'
-    }
-    if (regex2.test(password1.value)) {
-        error2.style.color = 'lime'
-    } else {
-        error2.style.color = 'red'
-    }
-    if (regex3.test(password1.value)) {
-        error3.style.color = 'lime'
-    } else {
-        error3.style.color = 'red'
-    }
-    if (regex4.test(password1.value)) {
-        error4.style.color = 'lime'
-    } else {
-        error4.style.color = 'red'
-    }
 }
 
 const getCurrency = async () => {
     try {
         const data = await fetch('https://api.currencyapi.com/v3/latest?apikey=cur_live_ATzfIXFR8Pr6oKvxkFhDFzdeIqOykW2gwlLtqa4f')
-        // console.log(data);
+        console.log(data);
         const actualData = await data.json()
-        // console.log(actualData);
+        console.log(actualData);
         const other = actualData.data;
-        // console.log("other", other);
+        console.log("other", other);
+        // Object.keys(other).forEach(key => {
+        //     select.innerHTML += `<option value="${other[key].value}">${other[key].code}</option>`;
+        //     select2.innerHTML += `<option value="${other[key].value}">${other[key].code}</option>`;
+        // });
         for (const key in other) {
             select.innerHTML += `<option value="${other[key].value}">${other[key].code}</option>`;
             select2.innerHTML += `<option value="${other[key].value}">${other[key].code}</option>`;
         }
     } catch (error) {
-        spinnerdiv.style.display = 'block'
-        homepage.style.display = 'none'
-        errors.style.display = 'flex'
+        // spinnerdiv.style.display = 'block'
+        // homepage.style.display = 'none'
+        // errors.style.display = 'flex'
     }
 };
 function convert() {
     let calculate = (amount.value / (select.value)) * select2.value
     console.log(calculate);
-    convertedamount.innerHTML =  `${'='} ${calculate}`;
+    convertedamount.innerHTML = `${'='} ${calculate}`;
 
 }
 

@@ -19,7 +19,8 @@
         justify-content: center;
         align-items: center;
         margin-top: 2rem;
-        background-color: rgb(233, 255, 210);
+        background-color: rgb(218, 210, 255);
+        color: navy;
     }
 
     .spinner {
@@ -48,7 +49,7 @@
     .homepage header {
         font-weight: 500;
         font-size: 1.2rem;
-        color: lime;
+        color: navy;
     }
 
     .signuppage {
@@ -83,14 +84,15 @@
         padding: 1rem;
         /* border-radius: 1rem; */
         border: none;
-        background-color: lime;
+        background-color: navy;
         margin-top: 8rem;
         margin-bottom: 0.5rem;
+        color: white;
         cursor: pointer;
     }
 
     .homepage button:hover {
-        background-color: rgb(115, 255, 115);
+        background-color: rgb(5, 5, 63);
 
     }
 
@@ -107,10 +109,11 @@
     }
 
     .displayconverted {
-        background-color: rgb(115, 255, 115);
+        background-color: rgb(5, 5, 63);
         padding: 1rem;
         cursor: pointer;
         font-size: 0.8rem;
+        color: white;
         text-align: center;
         /* border-radius: 1rem; */
         margin-bottom: 0.5rem;
@@ -139,7 +142,7 @@
         margin-bottom: 3rem;
         font-weight: 500;
         font-size: 1.2rem;
-        color: lime;
+        color: navy;
     }
 
     .signuppage input {
@@ -159,12 +162,13 @@
         /* border-radius: 1rem; */
         border: none;
         margin-top: 5rem;
-        background-color: lime;
+        background-color: navy;
         cursor: pointer;
+        color: white;
     }
 
     .signuppage button:hover {
-        background-color: rgb(115, 255, 115);
+        background-color: rgb(5, 5, 63);
 
     }
 
@@ -192,7 +196,7 @@
         font-size: 0.8rem;
         /* border-radius: 1rem; */
         cursor: pointer;
-        color: lime;
+        color: navy;
     }
 
     /* HTML: <div class="loader"></div> */
@@ -217,7 +221,7 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: lime;
+        background: navy;
         left: -16px;
         top: 0;
         animation:
@@ -262,7 +266,7 @@
     <section class="homepage" id="homepage">
         <div class="head">
             <header>Currency Converter</header>
-            <u onclick="signup()">Signup</u>
+            <!-- <u onclick="signup()">Signup</u> -->
         </div>
 
         <p>Amount</p>
@@ -283,10 +287,10 @@
         <p id="error" style="font-size: 0.8rem; color: red;"></p>
         <p style="font-size: 0.8rem; color: rgb(114, 114, 114);">YOUR PASSWORD MUST CONTAIN</p>
         <ul id="allerror">
-            <li id="error1">between 8 and 20 characters</li>
-            <li id="error2">1 upper case letter</li>
-            <li id="error3">1 or more numbers</li>
-            <li id="error4">1 or more special character</li>
+            <li id="error1" style="color: red;">between 8 and 20 characters</li>
+            <li id="error2" style="color: red;">1 upper case letter</li>
+            <li id="error3" style="color: red;">1 or more numbers</li>
+            <li id="error4" style="color: red;">1 or more special character</li>
         </ul>
         <button onclick="createaccount()">Sign up</button>
     </section>
